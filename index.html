@@ -9,89 +9,114 @@
 
     <!-- raw css -->
      <link rel="stylesheet" href="./styles/style.css">
-    <title>Alpha clash pro</title>
+    <title>Itachi Alpha</title>
     
 
 </head>
-<body class="font-poppins ">
-    <main class="min-h-screen bg-[#010313] bg-[url(images/background.png)] bg-no-repeat bg-center">
+<body class="font-poppins min-h-screen bg-[url(./images/itachi1.png)] bg-cover bg-no-repeat bg-center">
+    <main>
         <!-- home screen -->
-        <section class="home min-h-screen flex flex-col justify-center items-center hidden">
+        <section id="home-screen" class="home min-h-screen flex flex-col justify-center items-center ">
             <div class="flex flex-col items-center gap-5 text-white">
-                <h1 class="text-8xl font-russo  uppercase">Alpha Clash pro</h1>
-                <p>Unleash your keyboard kun g Fu : press "Enter"  to play </p>
-                <button class="btn btn-white">play</button>
+                <h1 class="text-8xl font-russo uppercase tc">Itachi Alpha</h1>
+                <p>Release your keyboard jutsuuu: press "Enter"  to cast jutsu </p>
+                <button onclick="play()" class="btn bg-[#627FC3] text-white">play</button>
             </div>
         </section>
         <!-- playground start-->
-        <section class="play-ground">
-            <div class="flex flex-col items-center gap-20">
+        <section id="play-ground" class="play-ground hidden">
+            <div class="flex flex-col items-center gap-5">
+              <!-- life score -->
+               <div class="flex justify-between w-2/4 mt-16">
+                  <div class="badge p-5">
+                    <span class="text-lg m-3">Life</span>
+                    <div class="badge bg-green-600 p-4">
+                      <img src="./images/life.svg" alt="">
+                      <span id="current-life" class="mx-2 text-white">3</span>
+                    </div>
+                  </div>
+                  
+                  <div class="badge p-5">
+                    <span class="text-lg m-3">Score</span>
+                    <div class="badge bg-[#951314] p-4">
+                      <img src="./images/score.svg" alt="">
+                      <span id="current-score" class="mx-2 text-white ">0</span>
+                    </div>
+                  </div>
+               </div>
                 <!-- screen -->
-                <div class="border bg-[#FFFFFFB3] h-60  mb-16 w-1/2 flex flex-col items-center justify-center">
-                  <p id="current-alphabet" class="text-9xl text-black uppercase">d</p>
+                <div class="border bg-[#FED9C6B3] h-60  mb-5 w-1/2 flex flex-col items-center justify-center">
+                  <p id="current-alphabet" class="text-9xl text-white uppercase">d</p>
+                </div>
+                <div>
+                  <p class="text-xm text-blue-500 mb-4">press 'esc' to quite the game!!</p>
                 </div>
                 <!-- keyboard start-->
                  <div>
-                    <div class="my-1 flex w-full justify-center gap-1">
-                        <kbd class="kbd">q</kbd>
-                        <kbd class="kbd">w</kbd>
-                        <kbd class="kbd">e</kbd>
-                        <kbd class="kbd">r</kbd>
-                        <kbd class="kbd">t</kbd>
-                        <kbd class="kbd">y</kbd>
-                        <kbd class="kbd">u</kbd>
-                        <kbd class="kbd">i</kbd>
-                        <kbd class="kbd">o</kbd>
-                        <kbd class="kbd">p</kbd>
+                    <div class="my-3 flex w-full justify-center gap-3 ">
+                        <kbd id="q" class="kbd">q</kbd>
+                        <kbd id="w" class="kbd">w</kbd>
+                        <kbd id="e" class="kbd">e</kbd>
+                        <kbd id="r" class="kbd">r</kbd>
+                        <kbd id="t" class="kbd">t</kbd>
+                        <kbd id="y" class="kbd">y</kbd>
+                        <kbd id="u" class="kbd">u</kbd>
+                        <kbd id="i" class="kbd">i</kbd>
+                        <kbd id="o" class="kbd">o</kbd>
+                        <kbd id="p" class="kbd">p</kbd>
                       </div>
-                      <div class="my-1 flex w-full justify-center gap-1">
-                        <kbd class="kbd">a</kbd>
-                        <kbd class="kbd">s</kbd>
-                        <kbd class="kbd">d</kbd>
-                        <kbd class="kbd">f</kbd>
-                        <kbd class="kbd">g</kbd>
-                        <kbd class="kbd">h</kbd>
-                        <kbd class="kbd">j</kbd>
-                        <kbd class="kbd">k</kbd>
-                        <kbd class="kbd">l</kbd>
+                      <div class="my-3 flex w-full justify-center gap-3">
+                        <kbd id="a" class="kbd">a</kbd>
+                        <kbd id="s" class="kbd">s</kbd>
+                        <kbd id="d" class="kbd">d</kbd>
+                        <kbd id="f" class="kbd">f</kbd>
+                        <kbd id="g" class="kbd">g</kbd>
+                        <kbd id="h" class="kbd">h</kbd>
+                        <kbd id="j" class="kbd">j</kbd>
+                        <kbd id="k" class="kbd">k</kbd>
+                        <kbd id="l" class="kbd">l</kbd>
                       </div>
-                      <div class="my-1 flex w-full justify-center gap-1">
-                        <kbd class="kbd">z</kbd>
-                        <kbd class="kbd">x</kbd>
-                        <kbd class="kbd">c</kbd>
-                        <kbd class="kbd">v</kbd>
-                        <kbd class="kbd">b</kbd>
-                        <kbd class="kbd">n</kbd>
-                        <kbd class="kbd">m</kbd>
-                        <kbd class="kbd">/</kbd>
+                      <div class="my-3 flex w-full justify-center gap-3">
+                        <kbd id="z" class="kbd">z</kbd>
+                        <kbd id="x" class="kbd">x</kbd>
+                        <kbd id="c" class="kbd">c</kbd>
+                        <kbd id="v" class="kbd">v</kbd>
+                        <kbd id="b" class="kbd">b</kbd>
+                        <kbd id="n" class="kbd">n</kbd>
+                        <kbd id="m" class="kbd">m</kbd>
+                        <kbd id="/" class="kbd">/</kbd>
                       </div>
                  </div>
                 <!-- keyboard end -->
 
-                <!-- life score -->
-                 <div>
-                    <div class="badge p-5">
-                      <span class="text-lg m-3">Life</span>
-                      <div class="badge bg-green-600 p-4">
-                        <img src="./images/life.svg" alt="">
-                        <span class="mx-2 text-white">1</span>
-                      </div>
-                    </div>
-                    
-                    <div class="badge p-5">
-                      <span class="text-lg m-3">Life</span>
-                      <div class="badge bg-purple-600 p-4">
-                        <img src="./images/score.svg" alt="">
-                        <span class="mx-2 text-white  ">1</span>
-                      </div>
-                    </div>
-                 </div>
             </div>
         </section>
         <!-- playground end -->
 
-        <section class="score"></section>
+
+        <!-- socre board  -->
+        <section id = "score-board" class="score flex flex-col justify-center items-center h-screen hidden">
+				<div
+					class="border border-red-500 p-3 rounded-md h-1/2 bg-[#627FC325] flex flex-col justify-center items-center shadow-lg"
+				>
+					<h1 class="text-2xl font-anton text-red-600">Game over!</h1>
+					<div class="w-24 border border-blue-400 mt-3"></div>
+
+					<h1 class="text-9xl text-white">
+						<span class="font-bold">Score:</span>
+						<span id="last-score" class="font-anton">0</span>
+					</h1>
+					<button onclick="play()" class="btn bg-white mt-10 mb-10">Play Again!</button>
+					<p class="text-smn text-gray-200">Practice Will Makes You Faster!</p>
+					<div class="w-24 border border-blue-400 mt-5"></div>
+				</div>
+			</section>
+
     </main>
 
+
+    <!-- SCRIPTS ARE HERE -->
+    <script src="./scripts/utility.js"></script>
+     <script src="./scripts/app.js"></script>
 </body>
 </html>
